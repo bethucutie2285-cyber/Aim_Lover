@@ -1,0 +1,847 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   BODY - VŨ TRỤ
+========================================= */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: #633343;
+
+    overflow-x: hidden;
+
+    position: relative;
+
+    background:
+
+        /* ÁNH SÁNG HỒNG Ở TRUNG TÂM */
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 70, 180, 0.32) 0%,
+            rgba(210, 50, 220, 0.18) 10%,
+            transparent 28%
+        ),
+
+        /* TINH VÂN XANH GÓC TRÁI */
+        radial-gradient(
+            ellipse 70% 40% at 5% 15%,
+            rgba(45, 80, 220, 0.32),
+            transparent 70%
+        ),
+
+        /* TINH VÂN TÍM GÓC PHẢI */
+        radial-gradient(
+            ellipse 70% 40% at 95% 85%,
+            rgba(190, 40, 220, 0.30),
+            transparent 70%
+        ),
+
+        /* TINH VÂN HỒNG */
+        radial-gradient(
+            ellipse 90% 20% at 50% 50%,
+            rgba(255, 60, 190, 0.25),
+            transparent 70%
+        ),
+
+        /* NỀN VŨ TRỤ */
+        linear-gradient(
+            135deg,
+            #01000a 0%,
+            #050014 30%,
+            #100025 55%,
+            #03000c 100%
+        );
+
+    background-attachment: fixed;
+}
+
+
+/* =========================================
+   🌌 DẢI NGÂN HÀ CHÍNH
+========================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 170vw;
+
+    height: 48vh;
+
+    left: -35vw;
+
+    top: 27vh;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(110, 70, 255, 0.35) 0%,
+            rgba(160, 50, 230, 0.25) 25%,
+            rgba(255, 60, 190, 0.18) 45%,
+            transparent 72%
+        );
+
+    filter: blur(35px);
+
+    transform: rotate(-18deg);
+
+    opacity: 0.9;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================
+   ✨ SAO
+========================================= */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+
+        /* SAO NHỎ */
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.95) 0,
+            rgba(255,255,255,0.95) 1px,
+            transparent 1.5px
+        ),
+
+        /* SAO HỒNG */
+        radial-gradient(
+            circle,
+            rgba(255,180,230,0.9) 0,
+            rgba(255,180,230,0.9) 1px,
+            transparent 1.6px
+        ),
+
+        /* SAO XANH */
+        radial-gradient(
+            circle,
+            rgba(170,190,255,0.9) 0,
+            rgba(170,190,255,0.9) 1px,
+            transparent 1.6px
+        );
+
+    background-size:
+        75px 75px,
+        130px 130px,
+        190px 190px;
+
+    background-position:
+        10px 20px,
+        40px 70px,
+        100px 30px;
+
+    opacity: 0.7;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   PHONG THƯ
+========================================= */
+
+#envelope-screen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.envelope-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   ENVELOPE
+========================================= */
+
+.envelope {
+
+    width: 330px;
+
+    height: 220px;
+
+    position: relative;
+
+    filter:
+        drop-shadow(
+            0 20px 35px
+            rgba(0, 0, 0, 0.45)
+        );
+}
+
+
+/* THÂN PHONG THƯ */
+
+.envelope-body {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff9fba,
+            #ff6f9c
+        );
+
+    border-radius: 5px;
+
+    z-index: 2;
+}
+
+
+/* TAM GIÁC PHÍA DƯỚI */
+
+.envelope-body::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        165px solid transparent;
+
+    border-right:
+        165px solid transparent;
+
+    border-bottom:
+        115px solid #ff4f88;
+}
+
+
+/* =========================================
+   NẮP PHONG THƯ
+========================================= */
+
+.flap {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    top: 0;
+
+    left: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffb1c8,
+            #ff82a6
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 55%
+        );
+
+    transform-origin: top;
+
+    z-index: 4;
+
+    transition:
+        transform 1s ease;
+}
+
+
+/* =========================================
+   LÁ THƯ
+========================================= */
+
+.letter-paper {
+
+    position: absolute;
+
+    width: 270px;
+
+    height: 180px;
+
+    left: 30px;
+
+    top: 20px;
+
+    background: #fffafc;
+
+    border-radius: 5px;
+
+    z-index: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    color: #bd496c;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 1s ease;
+}
+
+
+.letter-paper span {
+
+    font-size: 35px;
+
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+button {
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    margin-top: 35px;
+
+    padding:
+        14px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f88,
+            #d93478
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 60, 130, 0.35);
+
+    transition: 0.3s;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255, 60, 150, 0.5);
+}
+
+
+/* =========================================
+   HIỆU ỨNG MỞ THƯ
+========================================= */
+
+.envelope.open .flap {
+
+    transform:
+        rotateX(180deg);
+}
+
+
+.envelope.open .letter-paper {
+
+    transform:
+        translateY(-100px);
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   LETTER SCREEN
+========================================= */
+
+#letter-screen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        60px 20px 80px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   HIDDEN
+========================================= */
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* =========================================
+   BIG HEART
+========================================= */
+
+.big-heart {
+
+    font-size: 120px;
+
+    color: #ff5b9a;
+
+    text-shadow:
+
+        0 0 10px #ff8dac,
+
+        0 0 30px #ff789e,
+
+        0 0 60px
+        rgba(255, 80, 160, 0.7),
+
+        0 0 100px
+        rgba(255, 40, 180, 0.45);
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.13);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.08);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+h1 {
+
+    color: #ffc1dc;
+
+    font-size: 42px;
+
+    margin-top: 5px;
+
+    text-shadow:
+        0 0 15px
+        rgba(255, 120, 190, 0.6);
+}
+
+
+h2 {
+
+    color: #ff9bc5;
+
+    font-size: 23px;
+
+    font-weight: 500;
+
+    margin-top: 5px;
+
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 0 10px
+        rgba(255, 100, 180, 0.4);
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+
+    width:
+        min(90vw, 650px);
+
+    background:
+        rgba(255, 255, 255, 0.90);
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(100, 30, 120, 0.35);
+
+    line-height: 1.8;
+
+    text-align: left;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   TỪNG DÒNG
+========================================= */
+
+.line {
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    margin-bottom: 20px;
+}
+
+
+.line.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+.special {
+
+    color: #c73e68;
+
+    font-weight: 500;
+}
+
+
+.final {
+
+    text-align: center;
+
+    font-size: 20px;
+
+    color: #d13d6a;
+
+    margin-top: 30px;
+}
+
+
+.final-name {
+
+    text-align: center;
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+    color: #e03d70;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+#finalMessage {
+
+    max-height: 0;
+
+    opacity: 0;
+
+    overflow: hidden;
+
+    transition:
+        max-height 1.5s ease,
+        opacity 1s ease;
+
+    width:
+        min(90vw, 600px);
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.90);
+
+    border-radius: 25px;
+
+    line-height: 1.8;
+
+    font-size: 18px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+#finalMessage.show {
+
+    max-height: 300px;
+
+    opacity: 1;
+
+    margin-top: 30px;
+
+    padding: 30px;
+}
+
+
+.forever {
+
+    font-size: 55px;
+
+    color: #e94373;
+
+    margin-top: 15px;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+
+/* =========================================
+   FLOATING HEART
+========================================= */
+
+#hearts-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+}
+
+
+.floating-heart {
+
+    position: fixed;
+
+    bottom: -40px;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+    animation:
+        floatUp linear forwards;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255, 100, 190, 0.7)
+        );
+}
+
+
+@keyframes floatUp {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+
+    10% {
+
+        opacity: 1;
+    }
+
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            translateX(var(--moveX))
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .envelope {
+
+        width: 280px;
+
+        height: 190px;
+    }
+
+
+    .envelope-body::before {
+
+        border-left-width: 140px;
+
+        border-right-width: 140px;
+
+        border-bottom-width: 100px;
+    }
+
+
+    .letter-paper {
+
+        width: 230px;
+
+        height: 150px;
+
+        left: 25px;
+    }
+
+
+    .big-heart {
+
+        font-size: 90px;
+    }
+
+
+    h1 {
+
+        font-size: 32px;
+    }
+
+
+    h2 {
+
+        font-size: 20px;
+    }
+
+
+    .message {
+
+        padding: 25px;
+
+        font-size: 15px;
+    }
+
+
+    .final-name {
+
+        font-size: 23px;
+    }
+}
