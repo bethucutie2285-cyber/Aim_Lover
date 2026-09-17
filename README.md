@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="vi">
 
 <head>
@@ -13,7 +13,7 @@
     <title>For My Aim Lover 💗</title>
 
     <!-- Kết nối CSS -->
-    <link rel="stylesheet" href="script.js">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -263,7 +263,7 @@
 
     
     <audio id="bgMusic" loop> <source src="music/giaicuuthegioi.mp3" type="audio/mpeg"> </audio>
-    <script src="style.css"></script>
+    <script src="script.js"></script>
 
 
 </body>
