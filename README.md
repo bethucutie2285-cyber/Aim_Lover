@@ -208,7 +208,7 @@
 
         <button id="heartButton">
 
-            Một điều cuối cùng... 💗
+            Còn một điều cuối cùng nữa là... 💗
 
         </button>
 
